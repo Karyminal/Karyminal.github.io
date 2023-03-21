@@ -1,7 +1,7 @@
 // Initialize the application
 
 	EcwidApp.init({
-	  app_id: "karyminal-app", // use your application namespace
+	  app_id: "custom-app-83236273-1", // use your application namespace
 	  autoloadedflag: true, 
 	  autoheight: true
 	});
