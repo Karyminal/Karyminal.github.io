@@ -51,6 +51,12 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		function loadedContent() {
+			alert('script loaded');
+			document.getElementsByClassName("webdebit-button")[0].click();
+		}
+	</script>
 	<script src="https://pay.webdebit.com/js/pay_now.js"
 			onload="loadedContent();"
 			class="webdebit-paynow-button"
@@ -64,10 +70,7 @@
 	<script src="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/css/1.3.13/ecwid-app-ui.min.js"></script>
 
 	<script>
-		function loadedContent() {
-			alert('script loaded');
-			document.getElementsByClassName("webdebit-button")[0].click();
-		}
+
 		// Autosave feature for fields. Complimentary JS for the one from SDK above
 
 		(function initFieldset() {
