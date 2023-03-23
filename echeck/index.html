@@ -52,9 +52,34 @@
 		</div>
 	</div>
 	<script>
+		function waitForElm(selector) {
+			return new Promise(resolve => {
+				if (document.querySelector(selector)) {
+					return resolve(document.querySelector(selector));
+				}
+
+				const observer = new MutationObserver(mutations => {
+					if (document.querySelector(selector)) {
+						resolve(document.querySelector(selector));
+						observer.disconnect();
+					}
+				});
+
+				observer.observe(document.body, {
+					childList: true,
+					subtree: true
+				});
+			});
+		}
+
+
+
 		function loadedContent() {
-			alert('script loaded');
-			document.getElementsByClassName("webdebit-button")[0].click();
+			waitForElm('.webdebit-button').then((elm) => {
+				console.log('Element is ready');
+				console.log(elm.textContent);
+				elm.click();
+			});
 		}
 	</script>
 	<script src="https://pay.webdebit.com/js/pay_now.js"
