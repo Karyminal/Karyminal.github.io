@@ -5,6 +5,32 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
 	<script src="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/js/1.2.9/ecwid-app.js"></script>
+	<script>
+		console.log('EcwidApp', EcwidApp);
+		EcwidApp.init({
+		  app_id: "custom-app-83236273-1", // use your application namespace
+		  autoloadedflag: true, 
+		  autoheight: true
+		});
+		console.log('EcwidApp after init', EcwidApp);
+
+		var storeData = EcwidApp.getPayload();
+		console.log('EcwidApp.getPayload()', storeData);
+		if (storeData !== null) {
+			var storeId = storeData.store_id;
+			var accessToken = storeData.access_token;
+			var language = storeData.lang;
+			var viewMode = storeData.view_mode;
+
+			if (storeData.public_token !== undefined){
+			  var publicToken = storeData.public_token;
+			}
+
+			if (storeData.app_state !== undefined){
+			  var appState = storeData.app_state;
+			}
+		}
+	</script>
 	<link rel="stylesheet" href="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/css/1.3.13/ecwid-app-ui.css"/>
 
 <style>
@@ -91,7 +117,7 @@
 			data-invoicedescription="Description"
 			data-allowverify="0">
 	</script>
-	<script src='function.js'></script>
+	<!--<script src='function.js'></script>-->
 	<script src="https://d35z3p2poghz10.cloudfront.net/ecwid-sdk/css/1.3.13/ecwid-app-ui.min.js"></script>
 
 	<script>
