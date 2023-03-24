@@ -1,7 +1,7 @@
 <?php
 
-$client_secret = "6eQgAne246Dagz3LUkufGSdgPeJnL88f"; // This is a dummy value. Place your client_secret key here. You received it from Ecwid team in email when registering the app 
-//$cipher = "AES-128-CBC";     
+$client_secret = "secret_NaKZWMHNKA4WRz9ZWK9GVMtJvyAjzWYt"; // This is a dummy value. Place your client_secret key here. You received it from Ecwid team in email when registering the app
+//$cipher = "AES-128-CBC";
 $iv = openssl_random_pseudo_bytes($ivlen);// this can be generated random if you plan to store it for later but in this case e.g. openssl_random_pseudo_bytes($ivlen);
 $cipher = "aes-128-gcm";
 $ivlen = openssl_cipher_iv_length($cipher="AES-128-CBC");
@@ -111,7 +111,7 @@ if (isset($_POST["data"])) {
             foreach ($request as $name => $value) {
                 echo "<input type='hidden' name='$name' value='$value'></input>";
             }
-        echo "<input type='submit' value='Submit'>";    
+        echo "<input type='submit' value='Submit'>";
         echo "</form>";
         echo "<script>document.querySelector('#payment_form).submit();</script>";
 
@@ -152,7 +152,7 @@ if (isset($_GET["callbackPayload"]) && isset($_GET["status"])) {
 
     // URL used to update the order via Ecwid REST API
     $url = "https://app.ecwid.com/api/v3/$storeId/orders/transaction_$orderNumber?token=$token";
-  
+
     // Send request to update order
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -168,7 +168,7 @@ if (isset($_GET["callbackPayload"]) && isset($_GET["status"])) {
 
 }
 
-else { 
+else {
 
   header('HTTP/1.0 403 Forbidden');
   echo 'Access forbidden!';
